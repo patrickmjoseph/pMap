@@ -95,7 +95,9 @@ public class PMap {
 	public int[] keys() {
 		int[] key = new int[PEntries.size()];
 		for(int i = 0; i < PEntries.size(); i++){
+			if(!PEntries.contains(key)){
 			key[i] = PEntries.get(i).getKey();
+			}
 		}
 		return key;
 	}
@@ -109,7 +111,7 @@ public class PMap {
 	}
 
 	public PEntry[] entrys() {
-		// TODO Auto-generated method stub
+		for(int i = 0; i )
 		return null;
 	}
 
