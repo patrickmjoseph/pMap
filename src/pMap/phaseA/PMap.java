@@ -29,23 +29,48 @@ public class PMap {
 
 	public boolean containsKey(int key) {
 		// TODO Auto-generated method stub
-		return false;
+        for (PEntry p : PEntries) {
+            if (p.getKey() == key) {
+                return true;
+            }
+        }
+        return false;
 	}
 
 	public boolean containsValue(int value) {
 		// TODO Auto-generated method stub
-		return false;
+        for (PEntry p : PEntries) {
+            if (p.getValue() == value) {
+                return true;
+            }
+        }
+        return false;
 	}
 
 	public int get(int key) {
 		// TODO Auto-generated method stub
-		return 0;
+        for (PEntry p : PEntries) {
+            if (p.getKey() == key) {
+                return p.getValue();
+            }
+        }
+        return 0;
 	}
 
 	public int put(int key, int value) {
 		// TODO Auto-generated method stub
-		return 0;
+        if (containsKey(key)) {
+            for (PEntry p : PEntries) {
+                if (p.getKey() == key) {
+                    p.setValue(value);
+                    return value;
+                }
+            }
+        }
+        return 0;
 	}
+
+    //code until here
 
 	public int remove(int key) {
 		// TODO return value
