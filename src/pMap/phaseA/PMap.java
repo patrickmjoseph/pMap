@@ -48,28 +48,39 @@ public class PMap {
 	}
 
 	public int remove(int key) {
-		// TODO return value
-		return 0;
+		int val = get(key);
+		PEntries.remove(key);
+		return val;
 	}
 
 	public void putAll(int[] keys, int[] values) {
-		// TODO Auto-generated method stub
+		if(keys.length != values.length){
+			return;
+		}
+		for(int i = 0; i < keys.length; i++){
+			put(keys[i], values[i]);
+		}
 
 	}
 
 	public void clear() {
-		// TODO Auto-generated method stub
-
+			PEntries.removeAll(PEntries);
 	}
 
 	public int[] keys() {
-		// TODO Auto-generated method stub
-		return null;
+		int[] key = new int[PEntries.size()];
+		for(int i = 0; i < PEntries.size(); i++){
+			key[i] = PEntries.get(i).getKey();
+		}
+		return key;
 	}
 
 	public int[] values() {
-		// TODO Auto-generated method stub
-		return null;
+		int[] value = new int[PEntries.size()];
+		for(int i = 0; i < PEntries.size(); i++){
+			value[i] = PEntries.get(i).getValue();
+		}
+		return value;
 	}
 
 	public PEntry[] entrys() {
