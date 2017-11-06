@@ -123,38 +123,88 @@ public class PMapTest {
 	//start here
 	@Test
 	public void testPut(){
-		
+		PMap pMap = new PMap();
+		assertEquals(2, pMap.put(1, 2));
+		assertEquals(true, pMap.containsKey(1));
+		assertEquals(true, pMap.containsValue(2));
 	}
 	
 	@Test
 	public void testRemove(){
-		
+		PMap pMap = new PMap();
+		assertEquals(2, pMap.put(1, 2));
+		assertEquals(2, pMap.remove(1));
+		assertEquals(false, pMap.containsKey(1));
+		assertEquals(false, pMap.containsValue(2));
 	}
 	
 	@Test
 	public void testPutAll(){
-		
+		int[] keys = {1, 2, 3, 4, 5, 1};
+		int[] values = {6, 5, 4, 3, 2, 1};
+		PMap pMap = new PMap();
+		pMap.putAll(keys, values);
+		assertEquals(1, pMap.get(1));
+		assertEquals(5, pMap.get(2));
+		assertEquals(4, pMap.get(3));
+		assertEquals(3, pMap.get(4));
+		assertEquals(2, pMap.get(5));
+		assertEquals(5, pMap.size());
 	}
 	
 	@Test
 	public void testClear(){
-		
+		int[] keys = {1, 2, 3, 4, 5, 1};
+		int[] values = {6, 5, 4, 3, 2, 1};
+		PMap pMap = new PMap();
+		pMap.putAll(keys, values);
+		assertEquals(5, pMap.size());
+		pMap.clear();
+		assertEquals(0, pMap.size());
 	}
 	
 	@Test
 	public void testKeys(){
-		
+		int[] keys = {1, 2, 3, 4, 5, 1};
+		int[] returnedKeys = {1, 2, 3, 4, 5};
+		int[] values = {6, 5, 4, 3, 2, 1};
+		PMap pMap = new PMap();
+		pMap.putAll(keys, values);
+		assertEquals(returnedKeys, pMap.keys());
 	}
 	
 	@Test
 	public void testValues(){
-		
+		int[] keys = {1, 2, 3, 4, 5, 1};
+		int[] values = {6, 5, 4, 3, 2, 1};
+		int[] returnedValues = {1, 5, 4, 3, 2};
+		PMap pMap = new PMap();
+		pMap.putAll(keys, values);
+		assertEquals(returnedValues, pMap.values());
 	}
 	
 	@Test
-	public void testEntrys(){
-		
+	public void testEntries() {
+		int[] keys = {1, 2, 3, 4, 5, 1};
+		int[] values = {6, 5, 4, 3, 2, 1};
+		PMap pMap = new PMap();
+		pMap.putAll(keys, values);
+
+		PEntry p0 = new PEntry(1, 1);
+		PEntry p1 = new PEntry(2, 5);
+		PEntry p2 = new PEntry(3, 4);
+		PEntry p3 = new PEntry(4, 3);
+		PEntry p4 = new PEntry(5, 2);
+
+		PEntry[] entries = {p0, p1, p2, p3, p4};
+
+		assertEquals(entries.length, pMap.entrys().length);
+		assertEquals(entries[0], pMap.entrys()[0]);
+		assertEquals(entries[1], pMap.entrys()[1]);
+		assertEquals(entries[2], pMap.entrys()[2]);
+		assertEquals(entries[3], pMap.entrys()[3]);
+		assertEquals(entries[4], pMap.entrys()[4]);
+
+
 	}
-	
-	// TODO add more test cases to test all implemented methods
 }
