@@ -1,7 +1,9 @@
-/** Phase A <studentA EID><studentB EID>
- * Phase B <studentB EID><studentA EID>
+/** Phase A <tzv57><pmj443>
+ * Phase B <pmj443><tzv57>
  */
 package pMap.phaseA;
+
+import java.util.ArrayList;
 
 /**
  * PMap stands for Paired Map. A map is a collection of key value pairs, e.g.,
@@ -10,14 +12,18 @@ package pMap.phaseA;
  * See the java.util.Map documentation for how these methods are supposed to work
  */
 public class PMap {
+	ArrayList<PEntry> PEntries = new ArrayList<PEntry>();
 
 	public int size() {
 		// TODO Auto-generated method stub
-		return 0;
+		return PEntries.size();
 	}
 
 	public boolean isEmpty() {
 		// TODO Auto-generated method stub
+		if(PEntries.size() == 0) {
+			return true;
+		}
 		return false;
 	}
 
