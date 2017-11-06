@@ -80,12 +80,44 @@ public class PMapTest {
 	
 	@Test
 	public void testcontainsValue(){
-		
+		List<PEntry> entryList = new ArrayList<PEntry>();
+		PEntry testVal = new PEntry(1, 3);
+		PEntry testVal1 = new PEntry(2, 5);
+		PEntry testVal3 = new PEntry(4, 7);
+		PEntry testVal4 = new PEntry(3, 4);
+		PEntry testVal2 = new PEntry(3, 6);
+		PEntry testVal5 = new PEntry(4, 9);
+		entryList.add(testVal);
+		entryList.add(testVal1);
+		entryList.add(testVal3);
+		entryList.add(testVal4);
+		entryList.add(testVal2);
+		entryList.add(testVal5);
+		assert(entryList.contains(6));
+		assert(entryList.contains(5));
+		assert(entryList.contains(9));
+		assert(entryList.contains(7));
 	}
 	
 	@Test
 	public void testGet(){
-		
+		List<PEntry> entryList = new ArrayList<PEntry>();
+		PEntry testVal = new PEntry(1, 3);
+		PEntry testVal1 = new PEntry(2, 5);
+		PEntry testVal3 = new PEntry(4, 7);
+		PEntry testVal4 = new PEntry(3, 4);
+		PEntry testVal2 = new PEntry(3, 6);
+		PEntry testVal5 = new PEntry(4, 9);
+		entryList.add(testVal);
+		entryList.add(testVal1);
+		entryList.add(testVal3);
+		entryList.add(testVal4);
+		entryList.add(testVal2);
+		entryList.add(testVal5);
+		assertEquals(entryList.get(2), 6);
+		assertNotEquals(entryList.get(3).getKey(), 7);
+		assertEquals(entryList.get(1).getKey(), 5);
+		assertNotEquals(entryList.get(0).getKey(), 3);
 	}
 	
 	@Test

@@ -25,5 +25,9 @@ public class PEntry {
 		key = k;
 		value = v;
 	}
+	
+	public PEntry(){
+		
+	}
 	// TODO
 }
