@@ -61,29 +61,29 @@ public class PMapTest {
 	
 	@Test
 	public void testcontainsKey(){
-		List<PEntry> entryList = new ArrayList<PEntry>();
-		PEntry testVal = new PEntry(1, 3);
-		PEntry testVal1 = new PEntry(2, 5);
-		PEntry testVal3 = new PEntry(4, 7);
+        PMap pMap = new PMap();
+        PEntry testVal = new PEntry(1, 3);
+        PEntry testVal1 = new PEntry(2, 5);
+        PEntry testVal3 = new PEntry(4, 7);
 		PEntry testVal4 = new PEntry(0, 4);
 		PEntry testVal2 = new PEntry(3, 6);
-		entryList.add(testVal);
-		entryList.add(testVal1);
-		entryList.add(testVal3);
-		entryList.add(testVal4);
-		entryList.add(testVal2);
-		assertEquals(entryList.get(0).getKey(), 0);
-		assertNotEquals(entryList.get(0).getKey(), 1);
-		assertEquals(entryList.get(3).getKey(), 3);
-		assertNotEquals(entryList.get(3).getKey(), 4);
-	}
-	
-	@Test
-	public void testcontainsValue(){
-		List<PEntry> entryList = new ArrayList<PEntry>();
-		PEntry testVal = new PEntry(1, 3);
-		PEntry testVal1 = new PEntry(2, 5);
-		PEntry testVal3 = new PEntry(4, 7);
+        pMap.put(testVal.getKey(), testVal.getValue());
+        pMap.put(testVal1.getKey(), testVal1.getValue());
+        pMap.put(testVal3.getKey(), testVal3.getValue());
+        pMap.put(testVal4.getKey(), testVal4.getValue());
+        pMap.put(testVal2.getKey(), testVal2.getValue());
+        assertEquals(true, pMap.containsKey(1));
+        assertNotEquals(true, pMap.containsKey(2));
+        assertEquals(true, pMap.containsKey(3));
+        assertNotEquals(false, pMap.containsKey(7));
+    }
+
+    @Test
+    public void testcontainsValue(){
+        PMap pMap = new PMap();
+        PEntry testVal = new PEntry(1, 3);
+        PEntry testVal1 = new PEntry(2, 5);
+        PEntry testVal3 = new PEntry(4, 7);
 		PEntry testVal4 = new PEntry(3, 4);
 		PEntry testVal2 = new PEntry(3, 6);
 		PEntry testVal5 = new PEntry(4, 9);
