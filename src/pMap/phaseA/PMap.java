@@ -111,8 +111,12 @@ public class PMap {
 	}
 
 	public PEntry[] entrys() {
-		for(int i = 0; i )
-		return null;
+		PEntry[] list = new PEntry[PEntries.size()];
+		for(int i = 0; i < PEntries.size(); i++){
+			list[i].setKey(PEntries.get(i).getKey());
+			list[i].setValue(PEntries.get(i).getValue());
+		}
+		return list;
 	}
 
 }
